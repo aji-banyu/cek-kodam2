@@ -4,117 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cek Khodam Wkwkwk</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        /* background-color: rgb(184, 183, 183); */
-        background-color: rgb(75, 75, 75);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      #loading {
-        margin-bottom: 40px;
-        display: none;
-        position: fixed;
-        z-index: 999;
-        width: 100%;
-        height: 100%;
-
-        background: rgba(0, 0, 0, 0.5);
-        align-items: center;
-        justify-content: center;
-      }
-      #loading h2 {
-        border: 2px dashed #fff;
-        border-radius: 0px;
-        padding: 10px;
-        background-color: black;
-        position: relative;
-        font-size: 7vw;
-        color: #252839;
-        -webkit-text-stroke: 0.3vw #383d52;
-        text-transform: uppercase;
-      }
-      #loading h2:before {
-        border-radius: 10px;
-        padding: 10px;
-        content: attr(data-text);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color: #fefe;
-        /* color: rgb(33, 33, 255); */
-        -webkit-text-stroke: 0vw #383d52;
-        /* border-right: 2px solid rgb(33, 33, 255); */
-        overflow: hidden;
-        animation: animate 1.4s linear infinite;
-      }
-      @keyframes animate {
-        0%,
-        10%,
-        100% {
-          width: 0;
-        }
-        70%,
-        90% {
-          width: 100%;
-        }
-      }
-
-      #result {
-        padding-top: 26px;
-        padding-bottom: 26px;
-        background-color: rgb(50, 50, 50);
-        border-radius: 8px;
-        text-rendering: geometricPrecision;
-      }
-      #result p {
-        border: 2px solid rgb(50, 50, 50);
-        padding: 0;
-        margin: 0;
-        transition: 0.5s;
-        color: #fff;
-      }
-
-      /* tablet */
-      @media (max-width: 768px) {
-        html {
-          font-size: 80%;
-        }
-        .container {
-          max-width: 98%;
-          height: 400px;
-        }
-      }
-      /* phone */
-      @media (max-width: 450px) {
-        html {
-          font-size: 75%;
-        }
-        #loading h2 {
-          margin-top: -90px;
-          margin-bottom: 90px;
-        }
-        .container {
-          max-width: 98%;
-          height: 360px;
-        }
-      }
-
-      input {
-        height: 35px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style></style>
   </head>
 
   <body>
@@ -122,46 +14,32 @@
       <h2 data-text="Loading...ben..keren">Loading...ben..keren</h2>
     </div>
 
-    <div
-      class="max-w-md w-full bg-white p-8 rounded shadow-lg m-auto mt-40 container"
-    >
-      <h2 class="text-2xl font-bold mb-8 text-center">Cek Khodam</h2>
+    <div class="container">
+      <h2>Cek Khodam</h2>
       <form id="khodamForm" action="#" method="POST">
-        <div class="mb-4">
+        <div class="nama">
           <input
             type="text"
             required
             id="nama"
             placeholder="Masukan Nama Kamu"
             name="nama"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
-        <div class="mb-4 flex justify-center">
+        <div class="mb-4 flex justify-center btn">
           <button
             type="submit"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Cek
           </button>
         </div>
 
-        <div id="result" class="text-center"></div>
+        <div id="result"></div>
         <br />
-        <footer
-          class="footer"
-          style="
-            left: 0;
-            width: 100%;
-            bottom: 0;
-            text-align: center;
-            font-weight: 550;
-            font-family: sans-serif;
-            color: rgb(91, 91, 91);
-            margin-bottom: -15px;
-          "
-        >
+        <footer class="footer">
           <p>@made by: ajik dong..</p>
         </footer>
       </form>
@@ -249,7 +127,7 @@
             nama == "Utsniya"
           ) {
             const resultContainer = document.getElementById("result");
-            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p><br/>
         <p class="text-2xl text-white-500 font-bold">Kodam : Tuyul Ceperet</p>`;
             const inputNama = document.getElementById("nama");
             inputNama.value = "";
@@ -267,7 +145,7 @@
             nama == "Mauqiyyah"
           ) {
             const resultContainer = document.getElementById("result");
-            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p><br/>
         <p class="text-2xl text-white-500 font-bold">Kodam : Kentut Berdahak</p>`;
             const inputNama = document.getElementById("nama");
             inputNama.value = "";
@@ -278,7 +156,7 @@
           console.log(`Khodam yang muncul: ${randomKhodam}`);
 
           const resultContainer = document.getElementById("result");
-          resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+          resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p><br/>
         <p class="text-2xl text-white-500 font-bold">Kodam : ${randomKhodam}</p>`;
 
           const inputNama = document.getElementById("nama");
