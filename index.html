@@ -32,7 +32,8 @@
         justify-content: center;
       }
       #loading h2 {
-        border-radius: 10px;
+        border: 2px dashed #fff;
+        border-radius: 0px;
         padding: 10px;
         background-color: black;
         position: relative;
@@ -67,6 +68,21 @@
         90% {
           width: 100%;
         }
+      }
+
+      #result {
+        padding-top: 26px;
+        padding-bottom: 26px;
+        background-color: rgb(50, 50, 50);
+        border-radius: 8px;
+        text-rendering: geometricPrecision;
+      }
+      #result p {
+        border: 2px solid rgb(50, 50, 50);
+        padding: 0;
+        margin: 0;
+        transition: 0.5s;
+        color: #fff;
       }
 
       /* tablet */
@@ -215,8 +231,8 @@
             nama == "Utsniya"
           ) {
             const resultContainer = document.getElementById("result");
-            resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
-        <p class="text-2xl text-blue-500 font-bold">Kodam : Tuyul Ceperet</p>`;
+            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+        <p class="text-2xl text-white-500 font-bold">Kodam : Tuyul Ceperet</p>`;
             const inputNama = document.getElementById("nama");
             inputNama.value = "";
             return;
@@ -233,8 +249,8 @@
             nama == "Mauqiyyah"
           ) {
             const resultContainer = document.getElementById("result");
-            resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
-        <h4 class="text-2xl text-blue-500 font-bold">Kodam : Kentut Berdahak</h4>`;
+            resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+        <p class="text-2xl text-white-500 font-bold">Kodam : Kentut Berdahak</p>`;
             const inputNama = document.getElementById("nama");
             inputNama.value = "";
             return;
@@ -244,8 +260,8 @@
           console.log(`Khodam yang muncul: ${randomKhodam}`);
 
           const resultContainer = document.getElementById("result");
-          resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
-        <h4 class="text-2xl text-blue-500 font-bold">Kodam : ${randomKhodam}</h4>`;
+          resultContainer.innerHTML = `<p class="text-2xl text-white-500 font-bold">"${nama}"</p>
+        <p class="text-2xl text-white-500 font-bold">Kodam : ${randomKhodam}</p>`;
 
           const inputNama = document.getElementById("nama");
           inputNama.value = "";
