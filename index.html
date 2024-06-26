@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cek Khodam Wkwkwk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        /* background-color: rgb(184, 183, 183); */
+        background-color: rgb(38, 38, 38);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1);
+        align-items: center;
+        justify-content: center;
+      }
+      #loading p {
+        position: relative;
+        font-size: 7vw;
+        color: #252839;
+        -webkit-text-stroke: 0.3vw #383d52;
+        text-transform: uppercase;
+      }
+      #loading p:before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: rgb(33, 33, 255);
+        -webkit-text-stroke: 0vw #383d52;
+        border-right: 2px solid rgb(33, 33, 255);
+        overflow: hidden;
+        animation: animate 1.2s linear infinite;
+      }
+      @keyframes animate {
+        0%,
+        10%,
+        100% {
+          width: 0;
+        }
+        70%,
+        90% {
+          width: 100%;
+        }
+      }
+
+      /* tablet */
+      @media (max-width: 768px) {
+        html {
+          font-size: 80%;
+        }
+        .container {
+          max-width: 98%;
+          height: 400px;
+        }
+      }
+      /* phone */
+      @media (max-width: 450px) {
+        html {
+          font-size: 75%;
+        }
+        #loading p {
+          margin-top: -90px;
+          margin-bottom: 90px;
+        }
+        .container {
+          max-width: 98%;
+          height: 400px;
+        }
+        input {
+          height: 35px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loading">
+      <p data-text="Loading...ben..keren">Loading...ben..keren</p>
+    </div>
+
+    <div
+      class="max-w-md w-full bg-white p-8 rounded shadow-lg m-auto mt-40 container"
+    >
+      <h2 class="text-2xl font-bold mb-8 text-center">Cek Khodam</h2>
+      <form id="khodamForm" action="#" method="POST">
+        <div class="mb-4">
+          <input
+            type="text"
+            id="nama"
+            placeholder="Masukan Nama Kamu"
+            name="nama"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="mb-4 flex justify-center">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
+          >
+            Cek
+          </button>
+        </div>
+
+        <div id="result" class="text-center"></div>
+      </form>
+    </div>
+
+    <script>
+      const khodamNames = [
+        "Ultraman Hijau",
+        "Rangger Pink",
+        "Ikan Berkepala Lele",
+        "Rangger Hitam",
+        "Ayam Kampung",
+        "Rangger Merah",
+        "Neymar Bogor",
+        "Ayam Warna Kuning",
+        "Ikan Sumbing",
+        "Monyet Mullet",
+        "Wedus Cacat",
+        "Tuyul Ceperet",
+        "Kodok Afrika",
+        "Sendal Jepit",
+        "Tahu Bosok",
+        "Susu Kambing Jantan",
+        "Ikan Dugong",
+        "Kak Gem",
+        "Singa Introvert",
+        "Popok Bayi",
+        "Bagas Dribble",
+        "Si Imut Dari Pulau Jawa",
+        "Sigit Rendang",
+        "Kamu Pasti Wibu",
+        "Sayur Kangkung",
+        "Banteng PDI",
+        "Supra Bapak",
+        "Pohon Pisang Keramat",
+        "Ultramen",
+        "Ireng Man",
+        "Suparmin",
+        "Nyi roro kidol",
+        "Tikus Goreng",
+        "Saber Roam",
+        "Sosis Bakar",
+        "Kentut Berdahak",
+        "Plola Plolo",
+        "Kosong",
+        "Ayam Penyet",
+        "Siluman Naga",
+        "Kecoa Terbang",
+        "Ferdi Sambo",
+        "Joker Mewing",
+        "Mimi Peri",
+        "Kentos Kelapa",
+        "Nana Jungler",
+        "Mas Hendra Pentol",
+        "Bidadari Surga",
+      ];
+
+      function cekKhodam() {
+        document.getElementById("loading").style.display = "flex";
+        // lama waktu
+        // let loaded = setInterval(() => {
+        //   //   document.getElementById("loading").style.display = "flex";
+        // }, 1000);
+
+        // hentikan interval
+        setTimeout(() => {
+          //   clearInterval(loaded);
+          document.getElementById("loading").style.display = "none";
+          const randomIndex = Math.floor(Math.random() * khodamNames.length);
+          const randomKhodam = khodamNames[randomIndex];
+
+          const nama = document.getElementById("nama").value.trim();
+
+          if (nama === "") {
+            alert("Nama tidak boleh kosong!");
+            return;
+          }
+
+          // khusus mbak niyak
+          if (
+            nama == "Niyak" ||
+            nama == "Utees" ||
+            nama == "Niya" ||
+            nama == "Utsniya"
+          ) {
+            const resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
+        <h4 class="text-2xl text-blue-500 font-bold">Kodam : Tuyul Ceperet</h4>`;
+            const inputNama = document.getElementById("nama");
+            inputNama.value = "";
+            return;
+          }
+
+          // khusus mbak yayas
+          if (
+            nama == "Akyas" ||
+            nama == "Yayas" ||
+            nama == "Aya" ||
+            nama == "Aya'" ||
+            nama == "Ayak" ||
+            nama == "Akyas mauqiyyah" ||
+            nama == "Mauqiyyah"
+          ) {
+            const resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
+        <h4 class="text-2xl text-blue-500 font-bold">Kodam : Kentut Berdahak</h4>`;
+            const inputNama = document.getElementById("nama");
+            inputNama.value = "";
+            return;
+          }
+          // monyet end
+
+          console.log(`Khodam yang muncul: ${randomKhodam}`);
+
+          const resultContainer = document.getElementById("result");
+          resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
+        <h4 class="text-2xl text-blue-500 font-bold">Kodam : ${randomKhodam}</h4>`;
+
+          const inputNama = document.getElementById("nama");
+          inputNama.value = "";
+        }, 1000);
+      }
+      const form = document.getElementById("khodamForm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        cekKhodam();
+      });
+    </script>
+  </body>
+</html>
