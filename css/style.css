@@ -108,7 +108,7 @@ body {
   -webkit-text-stroke: 0vw #383d52;
   /* border-right: 2px solid rgb(33, 33, 255); */
   overflow: hidden;
-  animation: animate 1.4s linear infinite;
+  animation: animate 4.4s linear infinite;
 }
 @keyframes animate {
   0%,
