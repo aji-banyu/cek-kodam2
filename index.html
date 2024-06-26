@@ -19,6 +19,7 @@
         align-items: center;
         min-height: 100vh;
       }
+
       #loading {
         margin-bottom: 40px;
         display: none;
@@ -106,11 +107,12 @@
         }
         .container {
           max-width: 98%;
-          height: 400px;
+          height: 300px;
         }
-        input {
-          height: 35px;
-        }
+      }
+
+      input {
+        height: 35px;
       }
     </style>
   </head>
@@ -146,10 +148,13 @@
         </div>
 
         <div id="result" class="text-center"></div>
-        <br /><br /><br />
+        <br />
         <footer
           class="footer"
           style="
+            left: 0;
+            width: 100%;
+            bottom: 0;
             text-align: center;
             font-weight: 550;
             font-family: sans-serif;
