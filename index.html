@@ -13,41 +13,49 @@
       }
       body {
         /* background-color: rgb(184, 183, 183); */
-        background-color: rgb(38, 38, 38);
+        background-color: rgb(75, 75, 75);
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
       }
       #loading {
+        margin-bottom: 40px;
         display: none;
         position: fixed;
         z-index: 999;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 1);
+
+        background: rgba(0, 0, 0, 0.5);
         align-items: center;
         justify-content: center;
       }
-      #loading p {
+      #loading h2 {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: black;
         position: relative;
         font-size: 7vw;
         color: #252839;
         -webkit-text-stroke: 0.3vw #383d52;
         text-transform: uppercase;
       }
-      #loading p:before {
+      #loading h2:before {
+        border-radius: 10px;
+        padding: 10px;
         content: attr(data-text);
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        color: rgb(33, 33, 255);
+        color: #fefe;
+        /* color: rgb(33, 33, 255); */
         -webkit-text-stroke: 0vw #383d52;
-        border-right: 2px solid rgb(33, 33, 255);
+        /* border-right: 2px solid rgb(33, 33, 255); */
         overflow: hidden;
-        animation: animate 1.2s linear infinite;
+        animation: animate 1.4s linear infinite;
       }
       @keyframes animate {
         0%,
@@ -76,7 +84,7 @@
         html {
           font-size: 75%;
         }
-        #loading p {
+        #loading h2 {
           margin-top: -90px;
           margin-bottom: 90px;
         }
@@ -93,7 +101,7 @@
 
   <body>
     <div id="loading">
-      <p data-text="Loading...ben..keren">Loading...ben..keren</p>
+      <h2 data-text="Loading...ben..keren">Loading...ben..keren</h2>
     </div>
 
     <div
@@ -208,7 +216,7 @@
           ) {
             const resultContainer = document.getElementById("result");
             resultContainer.innerHTML = `<p class="text-2xl text-blue-500 font-bold">"${nama}"</p><br>
-        <h4 class="text-2xl text-blue-500 font-bold">Kodam : Tuyul Ceperet</h4>`;
+        <p class="text-2xl text-blue-500 font-bold">Kodam : Tuyul Ceperet</p>`;
             const inputNama = document.getElementById("nama");
             inputNama.value = "";
             return;
